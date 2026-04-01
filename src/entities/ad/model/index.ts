@@ -4,6 +4,8 @@ export {
   selectAllAds,
   selectAdsStatus,
   selectSearchParams,
+  selectAllCategories,
+  selectSelectedCategories,
 } from "./selectors/adSelectors";
 
 export {

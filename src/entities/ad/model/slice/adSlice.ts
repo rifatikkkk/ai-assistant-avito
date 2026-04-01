@@ -1,14 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Ad, GetAdsParams } from "../types/AdSchema";
+import type { AdsState, GetAdsParams } from "../types/AdSchema";
 import { getAds } from "../../api";
-
-interface AdsState {
-  items: Ad[];
-  total: number;
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-  searchParams: GetAdsParams;
-}
 
 const initialState: AdsState = {
   items: [],
@@ -17,11 +9,12 @@ const initialState: AdsState = {
   error: null,
   searchParams: {
     q: "",
-    limit: null,
+    limit: 100,
     skip: 0,
-    sortColumn: "createdAt",
-    sortDirection: "desc",
+    sortColumn: null,
+    sortDirection: null,
   },
+  allCategories: [],
 };
 
 export const adSlice = createSlice({
@@ -29,7 +22,10 @@ export const adSlice = createSlice({
   initialState,
   reducers: {
     setSearchParams: (state, action: PayloadAction<Partial<GetAdsParams>>) => {
-      state.searchParams = { ...state.searchParams, ...action.payload };
+      state.searchParams = {
+        ...state.searchParams,
+        ...action.payload,
+      };
       state.status = "idle";
     },
     resetSearchParams: (state) => {
@@ -40,6 +36,9 @@ export const adSlice = createSlice({
       state.items = [];
       state.total = 0;
       state.status = "idle";
+    },
+    setAllCategories: (state, action: PayloadAction<string[]>) => {
+      state.allCategories = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -52,6 +51,16 @@ export const adSlice = createSlice({
         state.status = "succeeded";
         state.items = action.payload.items;
         state.total = action.payload.total;
+
+        if (state.allCategories.length === 0) {
+          const categories = new Set<string>();
+          action.payload.items.forEach((item) => {
+            if (item.category) {
+              categories.add(item.category);
+            }
+          });
+          state.allCategories = Array.from(categories).sort();
+        }
       })
       .addCase(getAds.rejected, (state, action) => {
         state.status = "failed";
@@ -60,4 +69,9 @@ export const adSlice = createSlice({
   },
 });
 
-export const { setSearchParams, resetSearchParams, clearAds } = adSlice.actions;
+export const {
+  setSearchParams,
+  resetSearchParams,
+  clearAds,
+  setAllCategories,
+} = adSlice.actions;

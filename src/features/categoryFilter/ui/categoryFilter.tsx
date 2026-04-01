@@ -1,8 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./categoryFilter.style.css";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import {
+  selectAllCategories,
+  selectSearchParams,
+  selectSelectedCategories,
+  setSearchParams,
+} from "@/entities/ad/model";
+import { getAds } from "@/entities/ad/api";
 
 export const CategoryFilter = () => {
+  const dispatch = useAppDispatch();
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const allCategories = useAppSelector(selectAllCategories);
+  const selectedCategories = useAppSelector(selectSelectedCategories);
+  const searchParams = useAppSelector(selectSearchParams);
+
+  const [tempSelected, setTempSelected] =
+    useState<string[]>(selectedCategories);
+
+  useEffect(() => {
+    setTempSelected(selectedCategories);
+  }, [selectedCategories]);
+
+  const handleCategoryChange = (category: string, checked: boolean) => {
+    let newSelected: string[];
+
+    if (checked) {
+      newSelected = [...tempSelected, category];
+    } else {
+      newSelected = tempSelected.filter((c) => c !== category);
+    }
+
+    setTempSelected(newSelected);
+
+    const categoriesParam =
+      newSelected.length > 0 ? newSelected.join(",") : undefined;
+    const newParams = { ...searchParams, categories: categoriesParam, skip: 0 };
+
+    dispatch(setSearchParams({ categories: categoriesParam, skip: 0 }));
+    dispatch(getAds(newParams));
+  };
+
   return (
     <div className="filter-category">
       <button
@@ -19,24 +58,25 @@ export const CategoryFilter = () => {
 
       {isCategoryOpen && (
         <ul className="filter-category__dropdown">
-          <li>
-            <label className="filter-category__item">
-              <input type="checkbox" value="auto" />
-              <span>Авто</span>
-            </label>
-          </li>
-          <li>
-            <label className="filter-category__item">
-              <input type="checkbox" value="electronics" />
-              <span>Электроника</span>
-            </label>
-          </li>
-          <li>
-            <label className="filter-category__item">
-              <input type="checkbox" value="realty" />
-              <span>Недвижимость</span>
-            </label>
-          </li>
+          {allCategories.length > 0 && (
+            <>
+              {allCategories.map((category) => (
+                <li key={category}>
+                  <label className="filter-category__item">
+                    <input
+                      type="checkbox"
+                      value={category}
+                      checked={tempSelected.includes(category)}
+                      onChange={(e) =>
+                        handleCategoryChange(category, e.target.checked)
+                      }
+                    />
+                    <span>{category}</span>
+                  </label>
+                </li>
+              ))}
+            </>
+          )}
         </ul>
       )}
     </div>

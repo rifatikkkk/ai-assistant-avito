@@ -1,6 +1,10 @@
 import { AdCard } from "@/features/adCard";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectAdsStatus, selectAllAds } from "@/entities/ad/model";
+import {
+  selectAdsStatus,
+  selectAllAds,
+  selectSearchParams,
+} from "@/entities/ad/model";
 import { useEffect } from "react";
 import { getAds } from "@/entities/ad/api";
 
@@ -10,10 +14,11 @@ export const ListAds = () => {
   const dispatch = useAppDispatch();
   const ads = useAppSelector(selectAllAds);
   const status = useAppSelector(selectAdsStatus);
+  const searchParams = useAppSelector(selectSearchParams);
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(getAds());
+      dispatch(getAds(searchParams));
     }
   }, [status, dispatch]);
 

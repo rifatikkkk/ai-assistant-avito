@@ -8,8 +8,11 @@ export interface Ad {
 
 export interface AdsState {
   items: Ad[];
+  total: number;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
+  searchParams: GetAdsParams;
+  allCategories: string[];
 }
 
 export interface GetAdsParams {
@@ -17,6 +20,7 @@ export interface GetAdsParams {
   limit?: number | null;
   skip?: number | null;
   needsRevision?: boolean;
-  sortColumn?: "title" | "createdAt";
-  sortDirection?: "asc" | "desc";
+  categories?: string;
+  sortColumn?: "title" | "createdAt" | null;
+  sortDirection?: "asc" | "desc" | null;
 }

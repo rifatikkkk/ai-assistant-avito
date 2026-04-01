@@ -21,6 +21,8 @@ export const getAds = createAsyncThunk<
       if (params.skip) queryParams.append("skip", params.skip.toString());
       if (params.needsRevision !== undefined)
         queryParams.append("needsRevision", params.needsRevision.toString());
+      if (params.categories)
+        queryParams.append("categories", params.categories);
       if (params.sortColumn)
         queryParams.append("sortColumn", params.sortColumn);
       if (params.sortDirection)
