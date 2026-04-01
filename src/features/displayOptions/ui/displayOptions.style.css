@@ -1,0 +1,40 @@
+.options__layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 73px;
+  gap: 20px;
+  background-color: var(--background-options-color);
+  padding: 2px 8px;
+  border-radius: 8px;
+  height: 32px;
+}
+
+.options__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary_85-color);
+  padding: 3px;
+  position: relative;
+}
+
+.options__btn--active {
+  color: var(--accent-colot);
+}
+
+.options__btn:first-child::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 28px;
+  background-color: var(--neutral-1-color);
+}

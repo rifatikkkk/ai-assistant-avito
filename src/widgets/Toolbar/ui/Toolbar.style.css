@@ -1,0 +1,16 @@
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  background-color: var(--neutral-1-color);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
