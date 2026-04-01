@@ -9,6 +9,8 @@ export const selectAdById = (state: RootState, id: number) =>
 export const selectAdsByCategory = (state: RootState, category: string) =>
   state.ads.items.filter((ad) => ad.category === category);
 export const selectSearchParams = (state: RootState) => state.ads.searchParams;
+export const selectSortDirection = (state: RootState) =>
+  state.ads.searchParams.sortDirection;
 export const selectAllCategories = (state: RootState) =>
   state.ads.allCategories;
 export const selectSelectedCategories = createSelector(

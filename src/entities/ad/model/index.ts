@@ -5,6 +5,7 @@ export {
   selectAllAds,
   selectAdsStatus,
   selectSearchParams,
+  selectSortDirection,
   selectAllCategories,
   selectSelectedCategories,
 } from "./selectors/adSelectors";
