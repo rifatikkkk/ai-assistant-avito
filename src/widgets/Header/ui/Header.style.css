@@ -1,0 +1,19 @@
+.ads-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 0 12px 8px;
+}
+
+.ads-header h3 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.ads-header p {
+  font-family: var(--font-family-inter);
+  font-size: 18px;
+  line-height: 100%;
+  color: var(--gray-color);
+}

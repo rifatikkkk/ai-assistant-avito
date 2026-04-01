@@ -1,5 +1,6 @@
 import type { Ad } from "@/entities/ad/model";
 import type { FC } from "react";
+import "./adCard.style.css";
 
 type AdCardProps = {
   item: Ad;
