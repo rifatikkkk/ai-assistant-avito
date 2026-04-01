@@ -5,3 +5,9 @@ export interface Ad {
   category: string;
   requiresRevision: boolean;
 }
+
+export interface AdsState {
+  items: Ad[];
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+}

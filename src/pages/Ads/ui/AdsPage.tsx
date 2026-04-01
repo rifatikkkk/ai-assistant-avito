@@ -2,7 +2,7 @@ import "./AdsPage.style.css";
 
 import { Filters } from "@/widgets/Filters";
 import { Header } from "@/widgets/Header";
-import { ListAds } from "@/widgets/ListAds";
+import { ListAds } from "@/features/listAds";
 import { Toolbar } from "@/widgets/Toolbar";
 
 const AdsPage = () => {

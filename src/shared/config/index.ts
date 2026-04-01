@@ -1,3 +1,2 @@
-import { routePaths, AppRoutes } from "./router/routePaths";
-
-export { routePaths, AppRoutes };
+export { routePaths, AppRoutes } from "./router/routePaths";
+export { API_URL } from "./api/api";
