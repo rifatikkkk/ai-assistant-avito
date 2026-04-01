@@ -1,4 +1,11 @@
+@import "./reset.css";
+@import "./global.css";
+
 body {
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--primary_85-color);
+  padding: 12px 32px;
+  font-family: var(--font-family-roboto);
+  overflow-x: hidden;
 }
