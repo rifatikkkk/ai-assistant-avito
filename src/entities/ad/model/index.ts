@@ -1,5 +1,6 @@
 export {
   selectAdById,
+  selectTotalCount,
   selectAdsByCategory,
   selectAllAds,
   selectAdsStatus,

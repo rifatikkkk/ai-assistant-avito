@@ -3,7 +3,7 @@ export interface Ad {
   title: string;
   price: number;
   category: string;
-  requiresRevision: boolean;
+  needsRevision: boolean;
 }
 
 export interface AdsState {

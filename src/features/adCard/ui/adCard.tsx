@@ -17,7 +17,7 @@ export const AdCard: FC<AdCardProps> = ({ item }) => {
           <div className="ad-card__category">
             <p>{item.category}</p>
           </div>
-          {item.requiresRevision && (
+          {item.needsRevision && (
             <ul className="ad-card__revision">
               <li>Требует доработок</li>
             </ul>

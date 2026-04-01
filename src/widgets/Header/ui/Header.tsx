@@ -1,15 +1,18 @@
 import { type FC } from "react";
 import "./Header.style.css";
+import { useAppSelector } from "@/app/store/hooks";
+import { selectTotalCount } from "@/entities/ad/model";
 
 type HeaderProps = {
   countAds: number;
 };
 
-export const Header: FC<HeaderProps> = ({ countAds }) => {
+export const Header: FC<HeaderProps> = () => {
+  const totalAds = useAppSelector(selectTotalCount);
   return (
     <header className="ads-header">
       <h3>Мои объявления</h3>
-      <p>{countAds} объявления</p>
+      <p>{totalAds} объявления</p>
     </header>
   );
 };

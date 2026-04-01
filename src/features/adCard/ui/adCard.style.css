@@ -1,14 +1,16 @@
 .ad-card {
-  height: 268px;
   background-color: var(--neutral-1-color);
   border: 1px solid var(--neutral-4-color);
   border-radius: 16px;
   gap: 0;
   max-width: 200px;
+  height: 100%;
+  min-height: 268px;
 }
 
 .ad-card__cover {
   display: block;
+  object-fit: cover;
   border-radius: 16px;
   border: 0;
 }
@@ -17,7 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin: 0 16px;
+  margin: 0 16px 16px;
   padding-top: 22px;
   font-size: 16px;
   position: relative;
