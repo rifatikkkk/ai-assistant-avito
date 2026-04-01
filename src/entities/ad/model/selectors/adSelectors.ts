@@ -1,4 +1,5 @@
 import { type RootState } from "@/app/store/store";
+import { createSelector } from "@reduxjs/toolkit";
 
 export const selectAllAds = (state: RootState) => state.ads.items;
 export const selectTotalCount = (state: RootState) => state.ads.total;
@@ -10,7 +11,10 @@ export const selectAdsByCategory = (state: RootState, category: string) =>
 export const selectSearchParams = (state: RootState) => state.ads.searchParams;
 export const selectAllCategories = (state: RootState) =>
   state.ads.allCategories;
-export const selectSelectedCategories = (state: RootState) => {
-  const categories = state.ads.searchParams.categories;
-  return categories ? categories.split(",") : [];
-};
+export const selectSelectedCategories = createSelector(
+  [selectSearchParams],
+  (searchParams) => {
+    const categories = searchParams.categories;
+    return categories ? categories.split(",") : [];
+  },
+);

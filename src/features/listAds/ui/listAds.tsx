@@ -24,11 +24,11 @@ export const ListAds = () => {
 
   return (
     <main className="ads-content">
-      <ul className="ads-list">
-        {ads.map((item) => (
-          <AdCard item={item} />
+      <div className="ads-list">
+        {ads.map((item, index) => (
+          <AdCard item={item} key={`${item.title}-${item.price}-${index}`} />
         ))}
-      </ul>
+      </div>
     </main>
   );
 };

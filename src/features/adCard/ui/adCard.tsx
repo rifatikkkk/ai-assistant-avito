@@ -8,7 +8,7 @@ type AdCardProps = {
 
 export const AdCard: FC<AdCardProps> = ({ item }) => {
   return (
-    <li key={item.id}>
+    <li>
       <article className="ad-card">
         <img src="pic/ad_cover.png" alt="ad-cover" className="ad-card__cover" />
         <div className="ad-card__content">

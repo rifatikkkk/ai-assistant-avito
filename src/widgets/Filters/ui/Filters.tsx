@@ -1,4 +1,4 @@
-import { ImproveFilter } from "@/features/improveFilter";
+import { NeedsRevisionFilter } from "@/features/needsRevisionFilter";
 import { CategoryFilter } from "@/features/categoryFilter";
 
 import "./Filters.style.css";
@@ -12,7 +12,7 @@ export const Filters = () => {
 
         <CategoryFilter />
 
-        <ImproveFilter />
+        <NeedsRevisionFilter />
       </div>
 
       <ResetFilter />
