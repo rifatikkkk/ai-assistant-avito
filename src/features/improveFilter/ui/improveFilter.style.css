@@ -1,0 +1,13 @@
+.filter-improve {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-improve p {
+  font-family: var(--font-family-inter);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+}

@@ -9,8 +9,11 @@
   --neutral-5-color: #d9d9d9;
   --background-color: #f7f5f8;
   --orange-color: #faad14;
+  --black-color: #000000;
 
+  --accent-color: #1890ff;
   --placeholder-input-color: #707176;
   --price-color: rgba(0, 0, 0, 0.45);
   --revision-color: #f9f1e6;
+  --tumbler-color: rgba(0, 35, 11, 0.2);
 }
