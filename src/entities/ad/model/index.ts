@@ -3,8 +3,14 @@ export {
   selectAdsByCategory,
   selectAllAds,
   selectAdsStatus,
+  selectSearchParams,
 } from "./selectors/adSelectors";
 
-export { adSlice } from "./slice/adSlice";
+export {
+  adSlice,
+  setSearchParams,
+  resetSearchParams,
+  clearAds,
+} from "./slice/adSlice";
 
-export type { Ad, AdsState } from "./types/AdSchema";
+export type { Ad, AdsState, GetAdsParams } from "./types/AdSchema";

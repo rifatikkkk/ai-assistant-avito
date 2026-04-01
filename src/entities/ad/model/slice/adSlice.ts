@@ -1,25 +1,45 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Ad } from "../types/AdSchema";
+import type { Ad, GetAdsParams } from "../types/AdSchema";
 import { getAds } from "../../api";
 
 interface AdsState {
   items: Ad[];
+  total: number;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
+  searchParams: GetAdsParams;
 }
 
 const initialState: AdsState = {
   items: [],
+  total: 0,
   status: "idle",
   error: null,
+  searchParams: {
+    q: "",
+    limit: null,
+    skip: 0,
+    sortColumn: "createdAt",
+    sortDirection: "desc",
+  },
 };
 
 export const adSlice = createSlice({
   name: "ads",
   initialState,
   reducers: {
-    addAd: (state, action: PayloadAction<Ad>) => {
-      state.items.push(action.payload);
+    setSearchParams: (state, action: PayloadAction<Partial<GetAdsParams>>) => {
+      state.searchParams = { ...state.searchParams, ...action.payload };
+      state.status = "idle";
+    },
+    resetSearchParams: (state) => {
+      state.searchParams = initialState.searchParams;
+      state.status = "idle";
+    },
+    clearAds: (state) => {
+      state.items = [];
+      state.total = 0;
+      state.status = "idle";
     },
   },
   extraReducers: (builder) => {
@@ -30,7 +50,8 @@ export const adSlice = createSlice({
       })
       .addCase(getAds.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.items = action.payload;
+        state.items = action.payload.items;
+        state.total = action.payload.total;
       })
       .addCase(getAds.rejected, (state, action) => {
         state.status = "failed";
@@ -39,4 +60,4 @@ export const adSlice = createSlice({
   },
 });
 
-export const { addAd } = adSlice.actions;
+export const { setSearchParams, resetSearchParams, clearAds } = adSlice.actions;

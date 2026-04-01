@@ -6,3 +6,4 @@ export const selectAdById = (state: RootState, id: number) =>
   state.ads.items.find((ad) => ad.id === id);
 export const selectAdsByCategory = (state: RootState, category: string) =>
   state.ads.items.filter((ad) => ad.category === category);
+export const selectSearchParams = (state: RootState) => state.ads.searchParams;
