@@ -8,6 +8,7 @@ import {
   setSearchParams,
 } from "@/entities/ad/model";
 import { getAds } from "@/entities/ad/api";
+import { categoryOptionsDisplay } from "../model/config/categoryConfig";
 
 export const CategoryFilter = () => {
   const dispatch = useAppDispatch();
@@ -42,6 +43,13 @@ export const CategoryFilter = () => {
     dispatch(getAds(newParams));
   };
 
+  const getCategoryLabel = (categoryValue: string): string => {
+    const found = categoryOptionsDisplay.find(
+      (opt) => opt.value === categoryValue,
+    );
+    return found?.label || categoryValue;
+  };
+
   return (
     <div className="filter-category">
       <button
@@ -71,7 +79,7 @@ export const CategoryFilter = () => {
                         handleCategoryChange(category, e.target.checked)
                       }
                     />
-                    <span>{category}</span>
+                    <span>{getCategoryLabel(category)}</span>
                   </label>
                 </li>
               ))}
