@@ -1,12 +1,12 @@
 import { ListAds } from "@/features/listAds";
+import { PaginationAds } from "@/features/paginationAds";
 import "./AdsWidget.style.css";
-import { SwitchPage } from "@/features/switchPage";
 
 export const AdsWidget = () => {
   return (
     <div className="ads-widget">
       <ListAds />
-      <SwitchPage />
+      <PaginationAds />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { AdCard } from "@/features/adCard";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import {
   selectAdsStatus,
-  selectAllAds,
+  selectDisplayedAds,
   selectSearchParams,
 } from "@/entities/ad/model";
 import { useEffect } from "react";
@@ -12,7 +12,7 @@ import "./ListAds.style.css";
 
 export const ListAds = () => {
   const dispatch = useAppDispatch();
-  const ads = useAppSelector(selectAllAds);
+  const displayedAds = useAppSelector(selectDisplayedAds);
   const status = useAppSelector(selectAdsStatus);
   const searchParams = useAppSelector(selectSearchParams);
 
@@ -25,7 +25,7 @@ export const ListAds = () => {
   return (
     <main className="ads-content">
       <div className="ads-list">
-        {ads.map((item, index) => (
+        {displayedAds.map((item, index) => (
           <AdCard item={item} key={`${item.title}-${item.price}-${index}`} />
         ))}
       </div>

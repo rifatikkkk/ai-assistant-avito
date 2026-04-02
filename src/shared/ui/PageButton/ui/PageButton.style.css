@@ -18,3 +18,15 @@
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
 }
+
+.arrow-left {
+  transform: rotate(180deg);
+}
+
+.page-button:disabled {
+  cursor: not-allowed;
+}
+
+.page-button:disabled img {
+  filter: var(--filter_neutral-5-color);
+}

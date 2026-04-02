@@ -1,7 +1,9 @@
+export { updateDisplayedItems } from "./utils/updateDisplayedItems";
 export { sortByPrice } from "./utils/sortByPrice";
 
 export {
   selectAdById,
+  selectDisplayedAds,
   selectTotalCount,
   selectAdsByCategory,
   selectAllAds,
@@ -10,6 +12,9 @@ export {
   selectSortDirection,
   selectAllCategories,
   selectPriceSortDirection,
+  selectCurrentPage,
+  selectItemsPerPage,
+  selectTotalPages,
   selectSelectedCategories,
 } from "./selectors/adSelectors";
 
@@ -19,6 +24,8 @@ export {
   resetSearchParams,
   clearAds,
   applyPriceSort,
+  setCurrentPage,
+  setItemsPerPage,
 } from "./slice/adSlice";
 
 export type {

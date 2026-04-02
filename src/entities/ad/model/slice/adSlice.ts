@@ -6,9 +6,11 @@ import type {
 } from "../types/AdSchema";
 import { getAds } from "../../api";
 import { sortByPrice } from "../utils/sortByPrice";
+import { updateDisplayedItems } from "../utils/updateDisplayedItems";
 
 const initialState: AdsState = {
   items: [],
+  displayedItems: [],
   total: 0,
   status: "idle",
   error: null,
@@ -21,6 +23,8 @@ const initialState: AdsState = {
   },
   allCategories: [],
   priceSortDirection: null,
+  currentPage: 1,
+  itemsPerPage: 10,
 };
 
 export const adSlice = createSlice({
@@ -33,15 +37,19 @@ export const adSlice = createSlice({
         ...action.payload,
       };
       state.status = "idle";
+      state.currentPage = 1;
     },
     resetSearchParams: (state) => {
       state.searchParams = initialState.searchParams;
       state.status = "idle";
+      state.currentPage = 1;
     },
     clearAds: (state) => {
       state.items = [];
+      state.displayedItems = [];
       state.total = 0;
       state.status = "idle";
+      state.currentPage = 1;
     },
     setAllCategories: (state, action: PayloadAction<string[]>) => {
       state.allCategories = action.payload;
@@ -49,8 +57,19 @@ export const adSlice = createSlice({
 
     applyPriceSort: (state, action: PayloadAction<PriceSortDirection>) => {
       state.priceSortDirection = action.payload;
+      state.currentPage = 1;
       if (action.payload)
         state.items = sortByPrice(state.items, action.payload);
+      updateDisplayedItems(state);
+    },
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+      updateDisplayedItems(state);
+    },
+    setItemsPerPage: (state, action: PayloadAction<number>) => {
+      state.itemsPerPage = action.payload;
+      state.currentPage = 1;
+      updateDisplayedItems(state);
     },
   },
   extraReducers: (builder) => {
@@ -72,6 +91,8 @@ export const adSlice = createSlice({
         }
 
         state.total = action.payload.total;
+        state.currentPage = 1;
+        updateDisplayedItems(state);
 
         if (state.allCategories.length === 0) {
           const categories = new Set<string>();
@@ -96,4 +117,6 @@ export const {
   clearAds,
   setAllCategories,
   applyPriceSort,
+  setCurrentPage,
+  setItemsPerPage,
 } = adSlice.actions;

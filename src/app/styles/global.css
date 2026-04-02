@@ -11,6 +11,9 @@
   --orange-color: #faad14;
   --black-color: #000000;
 
+  --filter_neutral-5-color: invert(92%) sepia(0%) saturate(0%)
+    hue-rotate(163deg) brightness(89%) contrast(110%);
+
   --accent-color: #1890ff;
   --placeholder-input-color: #707176;
   --background-input-color: #f6f6f8;
