@@ -1,7 +1,12 @@
 import { useState } from "react";
 import "./sortAds.style.css";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectSearchParams, setSearchParams } from "@/entities/ad/model";
+import {
+  applyPriceSort,
+  selectPriceSortDirection,
+  selectSearchParams,
+  setSearchParams,
+} from "@/entities/ad/model";
 import {
   selectCurrentSort,
   sortConfig,
@@ -13,6 +18,7 @@ import { getAds } from "@/entities/ad/api";
 export const SortAds = () => {
   const dispatch = useAppDispatch();
   const searchParams = useAppSelector(selectSearchParams);
+  const priceSortDirection = useAppSelector(selectPriceSortDirection);
   const currentSort = useAppSelector(selectCurrentSort);
   const [isSortOpen, setIsSortOpen] = useState(false);
 
@@ -20,16 +26,23 @@ export const SortAds = () => {
     const value = e.target.value as SortOption;
     setIsSortOpen(false);
 
-    const { sortColumn, sortDirection } = sortConfig[value];
+    if (value === "price_asc" || value === "price_desc") {
+      dispatch(setSearchParams({ sortColumn: null, sortDirection: null }));
+      dispatch(applyPriceSort(value));
+    } else {
+      if (priceSortDirection) dispatch(applyPriceSort(null));
 
-    const newParams = {
-      ...searchParams,
-      sortColumn,
-      sortDirection,
-    };
+      const { sortColumn, sortDirection } = sortConfig[value];
 
-    dispatch(setSearchParams({ sortColumn, sortDirection }));
-    dispatch(getAds(newParams));
+      const newParams = {
+        ...searchParams,
+        sortColumn,
+        sortDirection,
+      };
+
+      dispatch(setSearchParams({ sortColumn, sortDirection }));
+      dispatch(getAds(newParams));
+    }
   };
 
   return (

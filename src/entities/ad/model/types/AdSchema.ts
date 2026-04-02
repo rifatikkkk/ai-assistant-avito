@@ -6,6 +6,8 @@ export interface Ad {
   needsRevision: boolean;
 }
 
+export type PriceSortDirection = "price_asc" | "price_desc" | null;
+
 export interface AdsState {
   items: Ad[];
   total: number;
@@ -13,6 +15,7 @@ export interface AdsState {
   error: string | null;
   searchParams: GetAdsParams;
   allCategories: string[];
+  priceSortDirection: PriceSortDirection;
 }
 
 export interface GetAdsParams {

@@ -1,3 +1,5 @@
+export { sortByPrice } from "./utils/sortByPrice";
+
 export {
   selectAdById,
   selectTotalCount,
@@ -7,6 +9,7 @@ export {
   selectSearchParams,
   selectSortDirection,
   selectAllCategories,
+  selectPriceSortDirection,
   selectSelectedCategories,
 } from "./selectors/adSelectors";
 
@@ -15,6 +18,12 @@ export {
   setSearchParams,
   resetSearchParams,
   clearAds,
+  applyPriceSort,
 } from "./slice/adSlice";
 
-export type { Ad, AdsState, GetAdsParams } from "./types/AdSchema";
+export type {
+  Ad,
+  AdsState,
+  GetAdsParams,
+  PriceSortDirection,
+} from "./types/AdSchema";

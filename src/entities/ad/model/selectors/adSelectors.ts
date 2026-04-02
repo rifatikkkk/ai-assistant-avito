@@ -13,6 +13,9 @@ export const selectSortDirection = (state: RootState) =>
   state.ads.searchParams.sortDirection;
 export const selectAllCategories = (state: RootState) =>
   state.ads.allCategories;
+export const selectPriceSortDirection = (state: RootState) =>
+  state.ads.priceSortDirection;
+
 export const selectSelectedCategories = createSelector(
   [selectSearchParams],
   (searchParams) => {

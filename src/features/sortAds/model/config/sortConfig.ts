@@ -11,6 +11,8 @@ export const sortConfig: Record<SortOption, SortConfigItem> = {
   title_desc: { sortColumn: "title", sortDirection: "desc" },
   createdAt_asc: { sortColumn: "createdAt", sortDirection: "asc" },
   createdAt_desc: { sortColumn: "createdAt", sortDirection: "desc" },
+  price_desc: { sortColumn: null, sortDirection: null },
+  price_asc: { sortColumn: null, sortDirection: null },
 };
 
 export const sortOptionsDisplay = [
@@ -19,4 +21,6 @@ export const sortOptionsDisplay = [
   { value: "title_desc", label: "По названию (Я → А)" },
   { value: "createdAt_asc", label: "По дате (сначала старые)" },
   { value: "createdAt_desc", label: "По дате (сначала новые)" },
+  { value: "price_asc", label: "По цене (сначала дешевые)" },
+  { value: "price_desc", label: "По цене (сначала дорогие)" },
 ] as const;

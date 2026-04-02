@@ -1,6 +1,11 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { AdsState, GetAdsParams } from "../types/AdSchema";
+import type {
+  AdsState,
+  GetAdsParams,
+  PriceSortDirection,
+} from "../types/AdSchema";
 import { getAds } from "../../api";
+import { sortByPrice } from "../utils/sortByPrice";
 
 const initialState: AdsState = {
   items: [],
@@ -15,6 +20,7 @@ const initialState: AdsState = {
     sortDirection: null,
   },
   allCategories: [],
+  priceSortDirection: null,
 };
 
 export const adSlice = createSlice({
@@ -40,6 +46,12 @@ export const adSlice = createSlice({
     setAllCategories: (state, action: PayloadAction<string[]>) => {
       state.allCategories = action.payload;
     },
+
+    applyPriceSort: (state, action: PayloadAction<PriceSortDirection>) => {
+      state.priceSortDirection = action.payload;
+      if (action.payload)
+        state.items = sortByPrice(state.items, action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -49,7 +61,16 @@ export const adSlice = createSlice({
       })
       .addCase(getAds.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.items = action.payload.items;
+
+        if (state.priceSortDirection) {
+          state.items = sortByPrice(
+            action.payload.items,
+            state.priceSortDirection,
+          );
+        } else {
+          state.items = action.payload.items;
+        }
+
         state.total = action.payload.total;
 
         if (state.allCategories.length === 0) {
@@ -74,4 +95,5 @@ export const {
   resetSearchParams,
   clearAds,
   setAllCategories,
+  applyPriceSort,
 } = adSlice.actions;
