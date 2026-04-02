@@ -25,7 +25,7 @@
   transform: translateY(-50%);
   pointer-events: none;
   color: var(--primary_85-color);
-  transition: transform 0.2s ease;
+  transition: transform 0.1s ease;
 }
 
 .sort__arrow--open {

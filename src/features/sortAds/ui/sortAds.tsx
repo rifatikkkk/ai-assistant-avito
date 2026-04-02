@@ -14,6 +14,7 @@ import {
   type SortOption,
 } from "../model";
 import { getAds } from "@/entities/ad/api";
+import { useClickOutside } from "@/shared/lib";
 
 export const SortAds = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +22,10 @@ export const SortAds = () => {
   const priceSortDirection = useAppSelector(selectPriceSortDirection);
   const currentSort = useAppSelector(selectCurrentSort);
   const [isSortOpen, setIsSortOpen] = useState(false);
+
+  const sortRef = useClickOutside<HTMLDivElement>(() => {
+    setIsSortOpen(false);
+  }, isSortOpen);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value as SortOption;
@@ -46,7 +51,7 @@ export const SortAds = () => {
   };
 
   return (
-    <div className="sort">
+    <div className="sort" ref={sortRef}>
       <select
         className="sort-select"
         value={currentSort}
