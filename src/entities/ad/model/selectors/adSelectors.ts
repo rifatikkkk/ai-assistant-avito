@@ -22,6 +22,8 @@ export const selectItemsPerPage = (state: RootState) => state.ads.itemsPerPage;
 export const selectTotalPages = (state: RootState) => {
   return Math.ceil(state.ads.total / state.ads.itemsPerPage);
 };
+export const selectIsDisplayGrid = (state: RootState) =>
+  state.ads.isDisplayGrid;
 
 export const selectSelectedCategories = createSelector(
   [selectSearchParams],

@@ -25,6 +25,7 @@ const initialState: AdsState = {
   priceSortDirection: null,
   currentPage: 1,
   itemsPerPage: 10,
+  isDisplayGrid: true,
 };
 
 export const adSlice = createSlice({
@@ -70,6 +71,9 @@ export const adSlice = createSlice({
       state.itemsPerPage = action.payload;
       state.currentPage = 1;
       updateDisplayedItems(state);
+    },
+    setDisplayMode: (state, action: PayloadAction<boolean>) => {
+      state.isDisplayGrid = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -119,4 +123,5 @@ export const {
   applyPriceSort,
   setCurrentPage,
   setItemsPerPage,
+  setDisplayMode,
 } = adSlice.actions;

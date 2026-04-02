@@ -15,6 +15,7 @@ export {
   selectCurrentPage,
   selectItemsPerPage,
   selectTotalPages,
+  selectIsDisplayGrid,
   selectSelectedCategories,
 } from "./selectors/adSelectors";
 
@@ -26,6 +27,7 @@ export {
   applyPriceSort,
   setCurrentPage,
   setItemsPerPage,
+  setDisplayMode,
 } from "./slice/adSlice";
 
 export type {

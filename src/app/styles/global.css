@@ -13,6 +13,8 @@
 
   --filter_neutral-5-color: invert(92%) sepia(0%) saturate(0%)
     hue-rotate(163deg) brightness(89%) contrast(110%);
+  --filter-accent-color: invert(48%) sepia(48%) saturate(4694%)
+    hue-rotate(191deg) brightness(101%) contrast(101%);
 
   --accent-color: #1890ff;
   --placeholder-input-color: #707176;

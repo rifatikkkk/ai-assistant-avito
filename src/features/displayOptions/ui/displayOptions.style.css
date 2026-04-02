@@ -24,8 +24,8 @@
   position: relative;
 }
 
-.options__btn--active {
-  color: var(--accent-colot);
+.options__btn--active img {
+  filter: var(--filter-accent-color);
 }
 
 .options__btn:first-child::after {

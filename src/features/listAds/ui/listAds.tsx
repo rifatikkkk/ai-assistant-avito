@@ -3,18 +3,20 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import {
   selectAdsStatus,
   selectDisplayedAds,
+  selectIsDisplayGrid,
   selectSearchParams,
 } from "@/entities/ad/model";
 import { useEffect } from "react";
 import { getAds } from "@/entities/ad/api";
 
-import "./ListAds.style.css";
+import "./listAds.style.css";
 
 export const ListAds = () => {
   const dispatch = useAppDispatch();
   const displayedAds = useAppSelector(selectDisplayedAds);
   const status = useAppSelector(selectAdsStatus);
   const searchParams = useAppSelector(selectSearchParams);
+  const isDisplayGrid = useAppSelector(selectIsDisplayGrid);
 
   useEffect(() => {
     if (status === "idle") {
@@ -24,7 +26,7 @@ export const ListAds = () => {
 
   return (
     <main className="ads-content">
-      <div className="ads-list">
+      <div className={`${isDisplayGrid ? "ads-grid" : "ads-list"}`}>
         {displayedAds.map((item, index) => (
           <AdCard item={item} key={`${item.title}-${item.price}-${index}`} />
         ))}

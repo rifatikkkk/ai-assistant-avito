@@ -2,11 +2,20 @@
   min-width: 0;
 }
 
-.ads-list {
+.ads-grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 14px;
+  list-style: none;
+  padding: 0;
+}
+
+.ads-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
   list-style: none;
   padding: 0;
 }

@@ -19,6 +19,7 @@ export interface AdsState {
   priceSortDirection: PriceSortDirection;
   currentPage: number;
   itemsPerPage: number;
+  isDisplayGrid: boolean;
 }
 
 export interface GetAdsParams {
