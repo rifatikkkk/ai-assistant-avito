@@ -2,8 +2,8 @@ import "./AdsPage.style.css";
 
 import { Filters } from "@/widgets/Filters";
 import { Header } from "@/widgets/Header";
-import { ListAds } from "@/features/listAds";
 import { Toolbar } from "@/widgets/Toolbar";
+import { AdsWidget } from "@/widgets/AdsWidget";
 
 const AdsPage = () => {
   return (
@@ -14,7 +14,7 @@ const AdsPage = () => {
       <div className="content-layout">
         <Filters />
 
-        <ListAds />
+        <AdsWidget />
       </div>
     </div>
   );
