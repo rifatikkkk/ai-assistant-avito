@@ -2,6 +2,7 @@ import { selectIsDisplayGrid, type Ad } from "@/entities/ad/model";
 import type { FC } from "react";
 import "./adCard.style.css";
 import { useAppSelector } from "@/app/store/hooks";
+import { getCategoryLabel } from "@/shared/config";
 
 type AdCardProps = {
   item: Ad;
@@ -26,7 +27,7 @@ export const AdCard: FC<AdCardProps> = ({ item }) => {
           <div
             className={`${isDisplayGrid ? "ad-card__category--grid" : "ad-card__category--list"}`}
           >
-            <p>{item.category}</p>
+            <p>{getCategoryLabel(item.category)}</p>
           </div>
           <h5 className="ad-card__title">{item.title}</h5>
           <p className="ad-card__price">{item.price} ₽</p>
