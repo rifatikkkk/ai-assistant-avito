@@ -1,10 +1,14 @@
+import { useAppSelector } from "@/app/store/hooks";
 import "./headerDetailsAd.style.css";
+import { selectCurrentAd } from "@/entities/ad/model";
 
 export const HeaderDetailsAd = () => {
+  const ad = useAppSelector(selectCurrentAd);
+
   return (
     <header className="ads-details__header">
-      <h2>MacBook Pro 16</h2>
-      <h2>64000 ₽</h2>
+      <h2>{ad?.title}</h2>
+      <h2>{ad?.price} ₽</h2>
     </header>
   );
 };

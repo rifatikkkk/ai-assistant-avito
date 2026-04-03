@@ -1,10 +1,13 @@
+import { useAppSelector } from "@/app/store/hooks";
 import "./datesDetailsAd.style.css";
+import { formatDate, selectCurrentAd } from "@/entities/ad/model";
 
 export const DatesDetailsAd = () => {
+  const ad = useAppSelector(selectCurrentAd);
   return (
     <div className="ads-details__dates">
-      <p>Опубликовано: 10 марта 22:39</p>
-      <p>Отредактировано: 10 марта 23:12</p>
+      <p>Опубликовано: {formatDate(ad?.createdAt)}</p>
+      <p>Отредактировано: {formatDate(ad?.updatedAt)}</p>
     </div>
   );
 };
