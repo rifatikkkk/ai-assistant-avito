@@ -1,0 +1,8 @@
+.ads-details-page {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: var(--neutral-1-color);
+}

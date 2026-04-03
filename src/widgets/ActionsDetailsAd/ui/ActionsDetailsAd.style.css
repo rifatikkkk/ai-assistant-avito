@@ -1,0 +1,20 @@
+.ads-details__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ads-details__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: var(--font-family-inter);
+  margin-bottom: 20px;
+}
+
+.ads-details__info::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: var(--neutral-4-color);
+}

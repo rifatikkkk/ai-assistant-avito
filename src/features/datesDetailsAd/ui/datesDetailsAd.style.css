@@ -1,0 +1,12 @@
+.ads-details__dates {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ads-details__dates p {
+  text-align: end;
+  font-size: 16px;
+  color: var(--gray-color);
+  line-height: 100%;
+}

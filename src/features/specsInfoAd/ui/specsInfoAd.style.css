@@ -1,0 +1,11 @@
+.ads-details__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ads-details__specs-title {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+}

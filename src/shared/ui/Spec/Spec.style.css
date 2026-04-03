@@ -1,0 +1,28 @@
+.ads-details_specs-layout {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+}
+
+.ads-details__specs-names {
+  flex: 1;
+  max-width: 148px;
+  color: var(--price-color);
+  font-weight: 600;
+}
+
+.ads-details__specs-values {
+  color: var(--default-color);
+  font-weight: 400;
+  list-style: none;
+}

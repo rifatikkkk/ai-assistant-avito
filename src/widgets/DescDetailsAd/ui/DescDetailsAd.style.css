@@ -1,0 +1,20 @@
+.ads-details__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 480px;
+}
+
+.ads-details__desc-title {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.ads-details__desc-text {
+  font-family: var(--font-family-inter);
+  color: var(--default-color);
+  font-size: 16px;
+  line-height: 140%;
+  flex-wrap: wrap;
+}

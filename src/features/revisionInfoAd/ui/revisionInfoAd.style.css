@@ -1,0 +1,23 @@
+.ads-details__revision-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.ads-details__revision-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.ads-details__revision-values {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.ads-details__revision-list {
+  list-style-position: inside;
+  margin-left: 10px;
+}
