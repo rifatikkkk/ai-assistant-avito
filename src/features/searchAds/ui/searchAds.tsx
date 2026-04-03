@@ -26,7 +26,7 @@ export const SearchAds = () => {
   return (
     <div className="search">
       <button className="search-btn" onClick={handleSearchClick}>
-        <img src="svg/search.svg" alt="search-icon" className="search-icon" />
+        <img src="/svg/search.svg" alt="search-icon" className="search-icon" />
       </button>
 
       <input

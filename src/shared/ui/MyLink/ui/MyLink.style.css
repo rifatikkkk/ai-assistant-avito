@@ -1,0 +1,25 @@
+.link-reset {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  display: inline-block;
+}
+
+.link-reset:visited {
+  color: inherit;
+}
+
+.link-reset:hover {
+  text-decoration: none;
+}
+
+.link-reset:focus {
+  outline: none;
+}
+
+.link-reset:active {
+  color: inherit;
+}

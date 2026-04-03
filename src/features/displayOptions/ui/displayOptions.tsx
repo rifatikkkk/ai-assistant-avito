@@ -22,7 +22,7 @@ export const DisplayOptions = () => {
         onClick={handleGridClick}
         disabled={isDisplayGrid}
       >
-        <img src="svg/grid.svg" alt="grid-icon" />
+        <img src="/svg/grid.svg" alt="grid-icon" />
       </button>
 
       <button
@@ -31,7 +31,7 @@ export const DisplayOptions = () => {
         onClick={handleListClick}
         disabled={!isDisplayGrid}
       >
-        <img src="svg/list.svg" alt="list-icon" />
+        <img src="/svg/list.svg" alt="list-icon" />
       </button>
     </div>
   );

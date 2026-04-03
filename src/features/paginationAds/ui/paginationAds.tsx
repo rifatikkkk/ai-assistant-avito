@@ -31,7 +31,7 @@ export const PaginationAds = () => {
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <img src="svg/arrowPage.svg" alt="left-icon" className="arrow-left" />
+        <img src="/svg/arrowPage.svg" alt="left-icon" className="arrow-left" />
       </PageButton>
       {hasLeftEllipsis && (
         <>
@@ -58,7 +58,11 @@ export const PaginationAds = () => {
         onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <img src="svg/arrowPage.svg" alt="right-icon" className="arrow-right" />
+        <img
+          src="/svg/arrowPage.svg"
+          alt="right-icon"
+          className="arrow-right"
+        />
       </PageButton>
     </div>
   );

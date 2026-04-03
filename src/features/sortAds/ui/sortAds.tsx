@@ -65,7 +65,7 @@ export const SortAds = () => {
         ))}
       </select>
       <img
-        src="svg/arrow.svg"
+        src="/svg/arrow.svg"
         alt="arrow"
         className={`sort__arrow ${isSortOpen ? "sort__arrow--open" : ""}`}
       />

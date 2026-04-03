@@ -51,7 +51,7 @@ export const CategoryFilter = () => {
       >
         <span>Категория</span>
         <img
-          src="svg/arrow.svg"
+          src="/svg/arrow.svg"
           alt="arrow"
           className={`filter-category__arrow ${isCategoryOpen ? "filter-category__arrow--open" : ""}`}
         />

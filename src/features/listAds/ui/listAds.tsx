@@ -27,8 +27,8 @@ export const ListAds = () => {
   return (
     <main className="ads-content">
       <div className={`${isDisplayGrid ? "ads-grid" : "ads-list"}`}>
-        {displayedAds.map((item, index) => (
-          <AdCard item={item} key={`${item.title}-${item.price}-${index}`} />
+        {displayedAds.map((item) => (
+          <AdCard item={item} key={item.id} />
         ))}
       </div>
     </main>

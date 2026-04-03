@@ -3,6 +3,7 @@ import type { FC } from "react";
 import "./adCard.style.css";
 import { useAppSelector } from "@/app/store/hooks";
 import { getCategoryLabel } from "@/shared/config";
+import { MyLink } from "@/shared/ui/MyLink";
 
 type AdCardProps = {
   item: Ad;
@@ -12,12 +13,12 @@ export const AdCard: FC<AdCardProps> = ({ item }) => {
   const isDisplayGrid = useAppSelector(selectIsDisplayGrid);
 
   return (
-    <li>
+    <MyLink to={`/ads/${item.id}`}>
       <article
         className={`ad-card ${isDisplayGrid ? "ad-card--grid" : "ad-card--list"}`}
       >
         <img
-          src="pic/ad_cover.png"
+          src="/pic/ad_cover.png"
           alt="ad-cover"
           className={`ad-card__cover ${isDisplayGrid ? "ad-card__cover--grid" : "ad-card__cover--list"}`}
         />
@@ -38,6 +39,6 @@ export const AdCard: FC<AdCardProps> = ({ item }) => {
           )}
         </div>
       </article>
-    </li>
+    </MyLink>
   );
 };
