@@ -1,9 +1,12 @@
+export { getMissingFields } from "./utils/getMissingFields";
+export { formatDate } from "./utils/formatDate";
 export { updateDisplayedItems } from "./utils/updateDisplayedItems";
 export { sortByPrice } from "./utils/sortByPrice";
 
 export {
   selectAdById,
   selectDisplayedAds,
+  selectCurrentAd,
   selectTotalCount,
   selectAdsByCategory,
   selectAllAds,
@@ -28,6 +31,7 @@ export {
   setCurrentPage,
   setItemsPerPage,
   setDisplayMode,
+  clearCurrentAd,
 } from "./slice/adSlice";
 
 export type {
@@ -35,4 +39,7 @@ export type {
   AdsState,
   GetAdsParams,
   PriceSortDirection,
+  AdItem,
 } from "./types/AdSchema";
+
+export { fieldLabels, requiredFieldsByCategory } from "./config/adFields";

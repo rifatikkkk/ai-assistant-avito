@@ -4,6 +4,7 @@ import { createSelector } from "@reduxjs/toolkit";
 export const selectAllAds = (state: RootState) => state.ads.items;
 export const selectDisplayedAds = (state: RootState) =>
   state.ads.displayedItems;
+export const selectCurrentAd = (state: RootState) => state.ads.currentAd;
 export const selectTotalCount = (state: RootState) => state.ads.total;
 export const selectAdsStatus = (state: RootState) => state.ads.status;
 export const selectAdById = (state: RootState, id: number) =>

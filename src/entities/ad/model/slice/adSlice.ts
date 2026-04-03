@@ -4,13 +4,14 @@ import type {
   GetAdsParams,
   PriceSortDirection,
 } from "../types/AdSchema";
-import { getAds } from "../../api";
+import { getAdById, getAds } from "../../api";
 import { sortByPrice } from "../utils/sortByPrice";
 import { updateDisplayedItems } from "../utils/updateDisplayedItems";
 
 const initialState: AdsState = {
   items: [],
   displayedItems: [],
+  currentAd: null,
   total: 0,
   status: "idle",
   error: null,
@@ -75,6 +76,10 @@ export const adSlice = createSlice({
     setDisplayMode: (state, action: PayloadAction<boolean>) => {
       state.isDisplayGrid = action.payload;
     },
+
+    clearCurrentAd: (state) => {
+      state.currentAd = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -111,6 +116,20 @@ export const adSlice = createSlice({
       .addCase(getAds.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload as string;
+      })
+
+      .addCase(getAdById.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(getAdById.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.currentAd = action.payload;
+      })
+      .addCase(getAdById.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload as string;
+        state.currentAd = null;
       });
   },
 });
@@ -124,4 +143,5 @@ export const {
   setCurrentPage,
   setItemsPerPage,
   setDisplayMode,
+  clearCurrentAd,
 } = adSlice.actions;
