@@ -7,4 +7,8 @@
   font-size: 16px;
   line-height: 140%;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
 }
