@@ -1,9 +1,12 @@
 import { Warning } from "@/shared/ui";
 import "./revisionInfoAd.style.css";
+import type { FC } from "react";
 
-export const RevisionInfoAd = () => {
-  const values = ["Цвет", "Состояние"];
+interface RevisionInfoAdProps {
+  values: string[];
+}
 
+export const RevisionInfoAd: FC<RevisionInfoAdProps> = ({ values }) => {
   return (
     <Warning>
       <div className="ads-details__revision-content">

@@ -9,3 +9,11 @@
   font-weight: 500;
   line-height: 28px;
 }
+
+.ads-details__specs-empty {
+  font-family: var(--font-family-inter);
+  color: var(--default-color);
+  font-size: 16px;
+  line-height: 140%;
+  flex-wrap: wrap;
+}
