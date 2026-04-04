@@ -1,0 +1,19 @@
+.price__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price__required {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.price__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex: 1;
+}

@@ -1,0 +1,12 @@
+.title__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title__required {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}

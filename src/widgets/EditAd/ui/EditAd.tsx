@@ -2,7 +2,11 @@ import { Button, HelpButton, Input, Select, TextArea } from "@/shared/ui";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectCurrentAd } from "@/entities/ad/model";
 import "./EditAd.style.css";
-import { EditAdCategory } from "@/features/EditAdFeatures";
+import {
+  EditAdCategory,
+  EditAdPrice,
+  EditAdTitle,
+} from "@/features/EditAdFeatures";
 import { useEffect, useState } from "react";
 import type { FormDataUpdate } from "../model/types/dataForm";
 import { transformFromApiData } from "../model/utils/transformData";
@@ -38,25 +42,14 @@ export const EditAd = () => {
         onChange={(value) => updateFormData("category", value)}
       />
 
-      <div className="layout-column">
-        <div className="layout-row">
-          <img src="/svg/important.svg" alt="important-icon" />
-          <span>Название</span>
-        </div>
-        <Input name="name" placeholder="MacBook Pro 16" />
-      </div>
-
-      <div className="layout-column">
-        <div className="layout-row">
-          <img src="/svg/important.svg" alt="important-icon" />
-          <span>Цена</span>
-        </div>
-        <div className="price__actions">
-          <Input name="price" placeholder="160000" />
-
-          <HelpButton>Узнать рыночную стоимость</HelpButton>
-        </div>
-      </div>
+      <EditAdTitle
+        value={formData.title}
+        onChange={(value) => updateFormData("title", value)}
+      />
+      <EditAdPrice
+        value={formData.price}
+        onChange={(value) => updateFormData("price", value)}
+      />
 
       <div className="layout-column specs">
         <span>Характеристики</span>
