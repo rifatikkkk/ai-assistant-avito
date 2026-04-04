@@ -4,6 +4,13 @@
   gap: 8px;
 }
 
+.title__wrap span {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
 .title__required {
   display: flex;
   flex-direction: row;
