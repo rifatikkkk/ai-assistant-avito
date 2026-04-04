@@ -23,3 +23,11 @@
   gap: 8px;
   align-items: center;
 }
+
+.params__wrap::after {
+  margin-top: 10px;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-4-color);
+}
