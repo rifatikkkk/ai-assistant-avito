@@ -4,17 +4,12 @@
   gap: 18px;
 }
 
+/* edit for every attr */
 .edit-form span {
   font-family: var(--font-family-inter);
   font-size: 16px;
   font-weight: 600;
   line-height: 140%;
-}
-
-.layout-column {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 .edit-form__actions {

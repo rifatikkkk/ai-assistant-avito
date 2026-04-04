@@ -1,9 +1,10 @@
-import { Button, HelpButton, TextArea } from "@/shared/ui";
+import { Button } from "@/shared/ui";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectCurrentAd } from "@/entities/ad/model";
 import "./EditAd.style.css";
 import {
   EditAdCategory,
+  EditAdDesc,
   EditAdParams,
   EditAdPrice,
   EditAdTitle,
@@ -47,6 +48,7 @@ export const EditAd = () => {
         value={formData.title}
         onChange={(value) => updateFormData("title", value)}
       />
+
       <EditAdPrice
         value={formData.price}
         onChange={(value) => updateFormData("price", value)}
@@ -58,11 +60,10 @@ export const EditAd = () => {
         category={formData.category}
       />
 
-      <div className="layout-column desc">
-        <span>Описание</span>
-        <TextArea name="desc" placeholder="Описание" />
-        <HelpButton>Улучшить описание</HelpButton>
-      </div>
+      <EditAdDesc
+        value={formData.description}
+        onChange={(value) => updateFormData("description", value)}
+      />
 
       <div className="edit-form__actions">
         <Button>Сохранить</Button>

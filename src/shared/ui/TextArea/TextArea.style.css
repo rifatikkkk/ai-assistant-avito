@@ -15,4 +15,14 @@
   background-color: var(--neutral-1-color);
   border: 1px solid var(--neutral-5-color);
   border-radius: 8px;
+  outline: none;
+}
+
+.text-area__wrap textarea::placeholder {
+  color: var(--primary_25-color);
+}
+
+.text-area__wrap textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-focus);
 }
