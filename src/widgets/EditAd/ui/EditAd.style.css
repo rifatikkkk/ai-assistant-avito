@@ -1,0 +1,52 @@
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.edit-form span {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.layout-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layout-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.price__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex: 1;
+}
+
+.specs label {
+  color: var(--primary_85-color);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.specs-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-form__actions {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}

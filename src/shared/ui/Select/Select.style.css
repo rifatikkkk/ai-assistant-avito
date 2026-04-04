@@ -1,0 +1,38 @@
+.select__wrap {
+  position: relative;
+}
+
+.select__wrap select {
+  width: 100%;
+  max-height: 32px;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: var(--neutral-1-color);
+  border: 1px solid var(--neutral-5-color);
+  border-radius: 8px;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+
+.select__wrap primary-color {
+  color: var(--primary_85-color);
+}
+
+.select__wrap default-color {
+  color: var(--default-color);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.1s ease;
+}
+
+.select-arrow--open {
+  transform: translateY(-50%) rotate(180deg);
+}

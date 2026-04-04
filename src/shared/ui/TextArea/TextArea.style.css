@@ -1,0 +1,18 @@
+.text-area__wrap {
+  width: 942px;
+}
+
+.text-area__wrap textarea {
+  resize: vertical;
+  overflow: auto;
+  min-height: 60px;
+  width: 100%;
+  padding: 8px 16px;
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--primary_85-color);
+  background-color: var(--neutral-1-color);
+  border: 1px solid var(--neutral-5-color);
+  border-radius: 8px;
+}

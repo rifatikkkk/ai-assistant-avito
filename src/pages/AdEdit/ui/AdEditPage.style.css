@@ -1,0 +1,8 @@
+.ad-edit-page {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: var(--neutral-1-color);
+}

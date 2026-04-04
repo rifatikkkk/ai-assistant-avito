@@ -1,0 +1,15 @@
+.help-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: var(--revision-color);
+  color: var(--orange-2-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  gap: 10px;
+  cursor: pointer;
+  width: fit-content;
+}

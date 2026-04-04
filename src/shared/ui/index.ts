@@ -1,3 +1,8 @@
+export { Title } from "./Title/Title.tsx";
+export { HelpButton } from "./HelpButton/HelpButton.tsx";
+export { TextArea } from "./TextArea/TextArea.tsx";
+export { Input } from "./Input/Input.tsx";
+export { Select } from "./Select/Select.tsx";
 export { Spec } from "./Spec/Spec.tsx";
 export { Button } from "./Button/Button.tsx";
 export { Warning } from "./Warning/Warning.tsx";
