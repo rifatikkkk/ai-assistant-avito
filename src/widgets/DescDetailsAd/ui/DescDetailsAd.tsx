@@ -9,11 +9,7 @@ export const DescDetailsAd = () => {
     <div className="ads-details__desc">
       <p className="ads-details__desc-title">Описание</p>
       {ad?.description ? (
-        <h2 className="ads-details__desc-text">
-          Продаю свой MacBook Pro 16" (2021) на чипе M1 Pro. Состояние отличное,
-          работал бережно. Мощности хватает на всё: от сложного монтажа до кода,
-          при этом ноутбук почти не греется.
-        </h2>
+        <h2 className="ads-details__desc-text">{ad.description}</h2>
       ) : (
         <p className="ads-details__desc-text">Отсутсвует</p>
       )}

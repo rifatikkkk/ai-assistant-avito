@@ -17,6 +17,11 @@
   --default-color: #1e1e1e;
   --required-color: #ec221f;
 
+  --dust-red-1: #fff1f0;
+  --dust-red-2: #ffccc7;
+  --polar-green-1: #f6ffed;
+  --polar-green-3: #b7eb8f;
+
   --filter_neutral-5-color: invert(92%) sepia(0%) saturate(0%)
     hue-rotate(163deg) brightness(89%) contrast(110%);
   --filter-accent-color: invert(48%) sepia(48%) saturate(4694%)

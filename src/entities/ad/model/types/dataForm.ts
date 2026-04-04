@@ -1,3 +1,9 @@
+import type {
+  AutoItemParams,
+  ElectronicsItemParams,
+  RealEstateItemParams,
+} from "./AdSchema";
+
 export type FormDataUpdate = {
   category: string;
   title: string;
@@ -20,3 +26,12 @@ export type FormDataUpdate = {
     color?: string;
   };
 };
+
+export interface SubmitData {
+  id: number;
+  category: string;
+  title: string;
+  price: number;
+  description: string;
+  params: AutoItemParams | RealEstateItemParams | ElectronicsItemParams;
+}

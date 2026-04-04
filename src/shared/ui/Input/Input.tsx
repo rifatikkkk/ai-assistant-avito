@@ -35,9 +35,6 @@ export const Input: FC<InputProps> = ({
     <div className="input__layout">
       <div className="input__row">
         <div className="input__wrap">
-          <button className="clear-btn" onClick={handleClear} type="button">
-            <img src="/svg/clear.svg" alt="clear-icon" />
-          </button>
           <input
             name={name}
             type="text"
@@ -47,6 +44,9 @@ export const Input: FC<InputProps> = ({
             className={`${required ? "input--required" : "input--not-required"}`}
             {...props}
           />
+          <button className="clear-btn" onClick={handleClear} type="button">
+            <img src="/svg/clear.svg" alt="clear-icon" />
+          </button>
         </div>
         {children}
       </div>

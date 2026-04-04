@@ -1,3 +1,7 @@
+export {
+  transformFromApiData,
+  transformToSubmitData,
+} from "./utils/transformData";
 export { getMissingFields } from "./utils/getMissingFields";
 export { formatDate } from "./utils/formatDate";
 export { updateDisplayedItems } from "./utils/updateDisplayedItems";
@@ -44,5 +48,7 @@ export type {
   ElectronicsItemParams,
   RealEstateItemParams,
 } from "./types/AdSchema";
+
+export type { FormDataUpdate, SubmitData } from "./types/dataForm";
 
 export { fieldLabels, requiredFieldsByCategory } from "./config/adFields";

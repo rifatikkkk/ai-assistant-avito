@@ -1,0 +1,38 @@
+.notification__wrap {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  max-width: 327px;
+  padding: 9px 16px;
+  color: var(--primary-85-color);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.notification-error {
+  background-color: var(--dust-red-1);
+  border: 1px solid var(--dust-red-2);
+}
+
+.notification-success {
+  background-color: var(--polar-green-1);
+  border: 1px solid var(--polar-green-3);
+}
+
+.notification__content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.notification__text {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
