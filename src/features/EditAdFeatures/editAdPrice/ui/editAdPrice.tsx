@@ -9,7 +9,9 @@ interface EditAdPriceProps {
 
 export const EditAdPrice: FC<EditAdPriceProps> = ({ value, onChange }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    let newValue = e.target.value;
+    newValue = newValue.replace(/[^\d]/g, "");
+    onChange(newValue);
   };
 
   const handleClear = () => {
@@ -24,14 +26,15 @@ export const EditAdPrice: FC<EditAdPriceProps> = ({ value, onChange }) => {
       </div>
       <div className="price__actions">
         <Input
+          required
           name="price"
           placeholder="Цена"
           value={value}
           onChange={handleChange}
           onClear={handleClear}
-        />
-
-        <HelpButton>Узнать рыночную стоимость</HelpButton>
+        >
+          <HelpButton>Узнать рыночную стоимость</HelpButton>
+        </Input>
       </div>
     </div>
   );

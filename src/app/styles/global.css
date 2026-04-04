@@ -15,6 +15,7 @@
   --orange-2-color: #ffa940;
   --black-color: #000000;
   --default-color: #1e1e1e;
+  --required-color: #ec221f;
 
   --filter_neutral-5-color: invert(92%) sepia(0%) saturate(0%)
     hue-rotate(163deg) brightness(89%) contrast(110%);
@@ -34,4 +35,5 @@
   --shadow-1: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   --shadow-2: 0 6px 16px 0px rgba(0, 0, 0, 0.08);
   --shadow-3: 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+  --shadow-focus: 0 0 0 2px rgba(24, 144, 255, 0.1);
 }

@@ -23,6 +23,7 @@ export const EditAdTitle: FC<EditAdTitleProps> = ({ value, onChange }) => {
         <span>Название</span>
       </div>
       <Input
+        required
         name="title"
         placeholder="Название"
         value={value}

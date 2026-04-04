@@ -31,6 +31,7 @@ export const EditAdCategory: FC<EditAdCategoryProps> = ({
     <div className="category__wrap">
       <span>Категория</span>
       <Select
+        required
         name="category"
         values={categoryLabels}
         width={256}
