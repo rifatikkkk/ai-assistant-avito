@@ -4,7 +4,6 @@ import { DescDetailsAd } from "@/widgets/DescDetailsAd";
 import "./AdsDetailsPage.style.css";
 import { useParams } from "react-router";
 import { useAppDispatch } from "@/app/store/hooks";
-import { clearCurrentAd } from "@/entities/ad/model";
 import { useEffect } from "react";
 import { getAdById } from "@/entities/ad/api";
 
@@ -16,10 +15,6 @@ const AdsDetailsPage = () => {
     if (id) {
       dispatch(getAdById(Number(id)));
     }
-
-    return () => {
-      dispatch(clearCurrentAd());
-    };
   }, [dispatch, id]);
 
   return (
