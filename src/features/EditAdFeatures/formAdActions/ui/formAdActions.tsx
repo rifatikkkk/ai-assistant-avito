@@ -4,12 +4,18 @@ import { Button } from "@/shared/ui";
 
 interface FormAdActionsProps {
   onCancel: () => void;
+  disabled?: boolean;
 }
 
-export const FormAdActions: FC<FormAdActionsProps> = ({ onCancel }) => {
+export const FormAdActions: FC<FormAdActionsProps> = ({
+  onCancel,
+  disabled,
+}) => {
   return (
     <div className="form__actions">
-      <Button type="submit">Сохранить</Button>
+      <Button disabled={disabled} type="submit">
+        Сохранить
+      </Button>
       <Button onClick={onCancel} primaryColor={false}>
         Отменить
       </Button>

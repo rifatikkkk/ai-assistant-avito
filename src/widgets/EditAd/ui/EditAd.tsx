@@ -16,10 +16,11 @@ import {
   FormAdActions,
 } from "@/features/EditAdFeatures";
 import { useEffect, useState, type FormEvent } from "react";
-import { updateAd } from "@/entities/ad/api";
+import { getAdById, updateAd } from "@/entities/ad/api";
 import { useNavigate, useParams } from "react-router";
 import { useNotification } from "@/shared/lib";
 import { Notification } from "@/shared/ui";
+import { validateForm } from "../model/utils/validateForm";
 
 export const EditAd = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,13 +39,25 @@ export const EditAd = () => {
   });
 
   useEffect(() => {
-    // check when don't have ad (direct opening and reload)
-    if (ad) {
-      const transformedData = transformFromApiData(ad);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setFormData(transformedData);
-    }
-  }, [ad]);
+    const loadAd = async () => {
+      if (!id) return;
+
+      if (ad && ad.id === Number(id)) {
+        const transformedData = transformFromApiData(ad);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setFormData(transformedData);
+        return;
+      }
+      try {
+        const result = await dispatch(getAdById(Number(id))).unwrap();
+        const transformedData = transformFromApiData(result);
+        setFormData(transformedData);
+      } catch {
+        navigate("/ads");
+      }
+    };
+    loadAd();
+  }, [dispatch, id, ad, navigate]);
 
   const updateFormData = (field: keyof FormDataUpdate, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -114,7 +127,10 @@ export const EditAd = () => {
           onChange={(value) => updateFormData("description", value)}
         />
 
-        <FormAdActions onCancel={handleCancel} />
+        <FormAdActions
+          onCancel={handleCancel}
+          disabled={!validateForm(formData)}
+        />
       </form>
     </>
   );
