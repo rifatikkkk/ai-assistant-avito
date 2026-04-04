@@ -1,9 +1,10 @@
-import { Button, HelpButton, Input, Select, TextArea } from "@/shared/ui";
+import { Button, HelpButton, TextArea } from "@/shared/ui";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectCurrentAd } from "@/entities/ad/model";
 import "./EditAd.style.css";
 import {
   EditAdCategory,
+  EditAdParams,
   EditAdPrice,
   EditAdTitle,
 } from "@/features/EditAdFeatures";
@@ -51,45 +52,11 @@ export const EditAd = () => {
         onChange={(value) => updateFormData("price", value)}
       />
 
-      <div className="layout-column specs">
-        <span>Характеристики</span>
-        <div className="specs-actions">
-          <div className="layout-column specs-type">
-            <label>Тип</label>
-            <Select
-              name="type"
-              width={456}
-              values={["Ноутбук", "Телефон"]}
-              primaryColor={false}
-            />
-          </div>
-
-          <div className="layout-column specs-brand">
-            <label>Брэнд</label>
-            <Input name="brand" placeholder="Apple" />
-          </div>
-
-          <div className="layout-column specs-model">
-            <label>Модель</label>
-            <Input name="model" placeholder="M1 Pro" />
-          </div>
-
-          <div className="layout-column specs-color">
-            <label>Цвет</label>
-            <Input name="color" placeholder="Цвет" />
-          </div>
-
-          <div className="layout-column specs-condition">
-            <label>Состояние</label>
-            <Select
-              name="condition"
-              width={456}
-              values={["Новое", "Б/у"]}
-              primaryColor={false}
-            />
-          </div>
-        </div>
-      </div>
+      <EditAdParams
+        params={formData.params}
+        onChange={(params) => updateFormData("params", params)}
+        category={formData.category}
+      />
 
       <div className="layout-column desc">
         <span>Описание</span>

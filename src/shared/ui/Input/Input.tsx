@@ -1,9 +1,10 @@
-import type { FC, InputHTMLAttributes } from "react";
+import type { FC, InputHTMLAttributes, ReactNode } from "react";
 import "./Input.style.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   placeholder?: string;
+  children?: ReactNode;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClear?: () => void;
@@ -17,6 +18,7 @@ export const Input: FC<InputProps> = ({
   onChange,
   onClear,
   required = false,
+  children,
   ...props
 }) => {
   const handleClear = () => {
@@ -30,20 +32,28 @@ export const Input: FC<InputProps> = ({
   };
 
   return (
-    <div className="input__wrap">
-      <input
-        name={name}
-        type="text"
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required={required}
-        {...props}
-      />
+    <div className="input__layout">
+      <div className="input__row">
+        <div className="input__wrap">
+          <button className="clear-btn" onClick={handleClear} type="button">
+            <img src="/svg/clear.svg" alt="clear-icon" />
+          </button>
+          <input
+            name={name}
+            type="text"
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            className={`${required ? "input--required" : "input--not-required"}`}
+            {...props}
+          />
+        </div>
+        {children}
+      </div>
 
-      <button className="clear-btn" onClick={handleClear} type="button">
-        <img src="/svg/clear.svg" alt="clear-icon" />
-      </button>
+      {required && (value === "" || !value) && (
+        <p className="input--require-info">Данное поле должно быть заполнено</p>
+      )}
     </div>
   );
 };

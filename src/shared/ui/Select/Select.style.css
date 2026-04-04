@@ -9,18 +9,45 @@
   font-size: 14px;
   line-height: 22px;
   background-color: var(--neutral-1-color);
-  border: 1px solid var(--neutral-5-color);
   border-radius: 8px;
   cursor: pointer;
   appearance: none;
   outline: none;
 }
 
-.select__wrap primary-color {
+.select__wrap .primary-color {
   color: var(--primary_85-color);
 }
 
-.select__wrap default-color {
+.select__wrap .default-color {
+  color: var(--default-color);
+}
+
+.select--empty {
+  border: 1px solid var(--orange-2-color);
+}
+
+.select--not-empty {
+  border: 1px solid var(--neutral-5-color);
+}
+
+.select__wrap select option[value=""] {
+  color: var(--primary_25-color);
+  font-style: normal;
+}
+
+.select__wrap .default-color option:not([value=""]) {
+  color: var(--default-color);
+}
+
+.select__wrap .default-color:has(option[value=""]:checked) {
+  color: var(--primary_25-color);
+}
+
+.select__wrap
+  .default-color:has(option[value=""]:checked):has(
+    option:checked:not([value=""])
+  ) {
   color: var(--default-color);
 }
 

@@ -40,6 +40,9 @@ export type {
   GetAdsParams,
   PriceSortDirection,
   AdItem,
+  AutoItemParams,
+  ElectronicsItemParams,
+  RealEstateItemParams,
 } from "./types/AdSchema";
 
 export { fieldLabels, requiredFieldsByCategory } from "./config/adFields";

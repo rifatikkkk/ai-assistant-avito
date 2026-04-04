@@ -1,6 +1,22 @@
+.input__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input__row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
 .input__wrap {
   position: relative;
   width: 456px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .input__wrap input {
@@ -12,6 +28,30 @@
   background-color: var(--neutral-1-color);
   border: 1px solid var(--neutral-5-color);
   border-radius: 8px;
+  outline: none;
+}
+
+.input__wrap input::placeholder {
+  color: var(--primary_25-color);
+}
+
+.input--not-required:placeholder-shown {
+  border-color: var(--orange-2-color);
+}
+
+.input--required:placeholder-shown {
+  border-color: var(--required-color);
+}
+
+.input__wrap input:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-focus);
+}
+
+.input--require-info {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--required-color);
 }
 
 .input__wrap .clear-btn {
