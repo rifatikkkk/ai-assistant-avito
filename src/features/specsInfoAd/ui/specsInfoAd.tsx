@@ -1,7 +1,7 @@
 import { Spec } from "@/shared/ui";
 import "./specsInfoAd.style.css";
 import { selectCurrentAd } from "@/entities/ad/model";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 import { getSpecItems } from "@/entities/ad/model/utils/formatSpec";
 
 export const SpecsInfoAd = () => {

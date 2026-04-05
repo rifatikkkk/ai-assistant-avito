@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 import "./datesDetailsAd.style.css";
 import { formatDate, selectCurrentAd } from "@/entities/ad/model";
 

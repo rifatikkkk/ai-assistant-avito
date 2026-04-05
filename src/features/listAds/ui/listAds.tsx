@@ -1,5 +1,5 @@
 import { AdCard } from "@/features/adCard";
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import {
   selectAdsStatus,
   selectDisplayedAds,

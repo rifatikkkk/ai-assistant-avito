@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./sortAds.style.css";
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import {
   applyPriceSort,
   selectPriceSortDirection,

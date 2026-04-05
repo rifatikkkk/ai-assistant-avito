@@ -1,6 +1,6 @@
 import { PageButton } from "@/shared/ui";
 import "./paginationAds.style.css";
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import {
   selectCurrentPage,
   selectTotalPages,

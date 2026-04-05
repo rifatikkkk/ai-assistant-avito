@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import { selectIsDisplayGrid, setDisplayMode } from "@/entities/ad/model";
 import "./displayOptions.style.css";
 

@@ -3,7 +3,7 @@ import { ContentDetailsAd } from "@/widgets/ContentDetailsAd";
 import { DescDetailsAd } from "@/widgets/DescDetailsAd";
 import "./AdsDetailsPage.style.css";
 import { useParams } from "react-router";
-import { useAppDispatch } from "@/app/store/hooks";
+import { useAppDispatch } from "@/shared/lib";
 import { useEffect } from "react";
 import { getAdById } from "@/entities/ad/api";
 

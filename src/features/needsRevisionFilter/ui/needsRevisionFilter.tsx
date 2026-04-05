@@ -1,6 +1,6 @@
 import { Tumbler } from "@/shared/ui";
 import "./needsRevisionFilter.style.css";
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import { selectSearchParams, setSearchParams } from "@/entities/ad/model";
 import { getAds } from "@/entities/ad/api";
 

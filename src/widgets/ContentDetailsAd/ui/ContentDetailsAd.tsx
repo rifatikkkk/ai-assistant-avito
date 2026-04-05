@@ -1,7 +1,7 @@
 import { RevisionInfoAd } from "@/features/revisionInfoAd";
 import { SpecsInfoAd } from "@/features/specsInfoAd";
 import "./ContentDetailsAd.style.css";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 import { getMissingFields, selectCurrentAd } from "@/entities/ad/model";
 
 export const ContentDetailsAd = () => {

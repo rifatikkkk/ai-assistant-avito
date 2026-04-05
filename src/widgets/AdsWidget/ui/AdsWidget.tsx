@@ -2,7 +2,7 @@ import { ListAds } from "@/features/listAds";
 import { PaginationAds } from "@/features/paginationAds";
 import "./AdsWidget.style.css";
 import { useEffect } from "react";
-import { useAppDispatch } from "@/app/store/hooks";
+import { useAppDispatch } from "@/shared/lib";
 import { clearAdsStatus } from "@/entities/ad/model";
 
 export const AdsWidget = () => {

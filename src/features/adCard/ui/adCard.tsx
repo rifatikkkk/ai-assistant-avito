@@ -1,7 +1,7 @@
 import { selectIsDisplayGrid, type Ad } from "@/entities/ad/model";
 import type { FC } from "react";
 import "./adCard.style.css";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 import { getCategoryLabel } from "@/shared/config";
 import { MyLink } from "@/shared/ui";
 

@@ -3,7 +3,7 @@ import { Select } from "@/shared/ui";
 import { categoryMap, reverseMap } from "../model/config/categoryConfig";
 import "./editAdCategory.style.css";
 import { selectAllCategories } from "@/entities/ad/model";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 
 interface EditAdCategoryProps {
   value: string;

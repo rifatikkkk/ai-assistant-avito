@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./categoryFilter.style.css";
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+
 import {
   selectAllCategories,
   selectSearchParams,
@@ -9,6 +9,7 @@ import {
 } from "@/entities/ad/model";
 import { getAds } from "@/entities/ad/api";
 import { getCategoryLabel } from "@/shared/config";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 
 export const CategoryFilter = () => {
   const dispatch = useAppDispatch();

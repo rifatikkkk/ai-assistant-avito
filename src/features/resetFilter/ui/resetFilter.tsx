@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import "./resetFilter.style.css";
 import { selectSearchParams, setSearchParams } from "@/entities/ad/model";
 import { getAds } from "@/entities/ad/api";

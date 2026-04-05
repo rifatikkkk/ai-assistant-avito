@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import "./Header.style.css";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/shared/lib";
 import { selectTotalCount } from "@/entities/ad/model";
 
 type HeaderProps = {

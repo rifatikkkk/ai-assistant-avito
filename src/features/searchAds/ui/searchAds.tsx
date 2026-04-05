@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import "./searchAds.style.css";
 import { selectSearchParams, setSearchParams } from "@/entities/ad/model";
 import { useState } from "react";

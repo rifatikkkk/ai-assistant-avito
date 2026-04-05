@@ -1,4 +1,4 @@
-import { type RootState } from "@/app/store/store";
+import { type RootState } from "@/app/store/config/store";
 import { createSelector } from "@reduxjs/toolkit";
 
 export const selectAllAds = (state: RootState) => state.ads.items;
