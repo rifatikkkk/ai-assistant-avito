@@ -5,7 +5,7 @@ export const getAdById = createAsyncThunk<
   AdItem,
   number,
   { rejectValue: string }
->("ads/getAdByID", async (id, { rejectWithValue }) => {
+>("ads/getAdById", async (id, { rejectWithValue }) => {
   try {
     const response = await httpClient.get(`/items/${id}`);
     return response.data as AdItem;
