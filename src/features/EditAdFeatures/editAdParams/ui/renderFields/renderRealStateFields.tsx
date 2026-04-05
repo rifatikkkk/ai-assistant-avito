@@ -16,6 +16,18 @@ export const RenderRealEstateFields = ({
     onChange("type", mappedValue);
   };
 
+  const handleChangeNumber = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    key: string,
+  ) => {
+    let newValue = e.target.value;
+    newValue = newValue.replace(/[^\d]/g, "");
+    if (key === "yearOfManufacture" && newValue.length > 4) {
+      newValue = newValue.slice(0, 4);
+    }
+    onChange(key, newValue);
+  };
+
   const getTypeValue = () => {
     if (params.type === "flat") return "Квартира";
     if (params.type === "house") return "Дом";
@@ -50,10 +62,9 @@ export const RenderRealEstateFields = ({
         <label>Площадь</label>
         <Input
           name="area"
-          type="number"
           placeholder="Площадь"
           value={params.area || ""}
-          onChange={(e) => onChange("area", e.target.value)}
+          onChange={(e) => handleChangeNumber(e, "area")}
         />
       </div>
 
@@ -61,10 +72,9 @@ export const RenderRealEstateFields = ({
         <label>Этаж</label>
         <Input
           name="floor"
-          type="number"
           placeholder="Этаж"
           value={params.floor || ""}
-          onChange={(e) => onChange("floor", e.target.value)}
+          onChange={(e) => handleChangeNumber(e, "floor")}
         />
       </div>
     </>

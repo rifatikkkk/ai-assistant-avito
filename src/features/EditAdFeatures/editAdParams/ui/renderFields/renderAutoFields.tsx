@@ -15,6 +15,18 @@ export const RenderAutoFields = ({
     onChange("transmission", mappedValue);
   };
 
+  const handleChangeNumber = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    key: string,
+  ) => {
+    let newValue = e.target.value;
+    newValue = newValue.replace(/[^\d]/g, "");
+    if (key === "yearOfManufacture" && newValue.length > 4) {
+      newValue = newValue.slice(0, 4);
+    }
+    onChange(key, newValue);
+  };
+
   const getTransmissionValue = () => {
     if (params.transmission === "automatic") return "Автомат";
     if (params.transmission === "manual") return "Механика";
@@ -47,10 +59,9 @@ export const RenderAutoFields = ({
         <label>Год выпуска</label>
         <Input
           name="yearOfManufacture"
-          type="number"
           placeholder="Год выпуска"
           value={params.yearOfManufacture || ""}
-          onChange={(e) => onChange("yearOfManufacture", e.target.value)}
+          onChange={(e) => handleChangeNumber(e, "yearOfManufacture")}
         />
       </div>
 
@@ -69,10 +80,9 @@ export const RenderAutoFields = ({
         <label>Пробег</label>
         <Input
           name="mileage"
-          type="number"
           placeholder="Пробег"
           value={params.mileage || ""}
-          onChange={(e) => onChange("mileage", e.target.value)}
+          onChange={(e) => handleChangeNumber(e, "mileage")}
         />
       </div>
 
@@ -80,10 +90,9 @@ export const RenderAutoFields = ({
         <label>Мощность</label>
         <Input
           name="enginePower"
-          type="number"
           placeholder="Мощность"
           value={params.enginePower || ""}
-          onChange={(e) => onChange("enginePower", e.target.value)}
+          onChange={(e) => handleChangeNumber(e, "enginePower")}
         />
       </div>
     </>
