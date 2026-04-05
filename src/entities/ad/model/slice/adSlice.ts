@@ -46,6 +46,9 @@ export const adSlice = createSlice({
       state.status = "idle";
       state.currentPage = 1;
     },
+    clearAdsStatus: (state) => {
+      state.status = "idle";
+    },
     clearAds: (state) => {
       state.items = [];
       state.displayedItems = [];
@@ -137,6 +140,7 @@ export const adSlice = createSlice({
 export const {
   setSearchParams,
   resetSearchParams,
+  clearAdsStatus,
   clearAds,
   setAllCategories,
   applyPriceSort,

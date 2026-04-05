@@ -30,6 +30,7 @@ export {
   adSlice,
   setSearchParams,
   resetSearchParams,
+  clearAdsStatus,
   clearAds,
   applyPriceSort,
   setCurrentPage,
