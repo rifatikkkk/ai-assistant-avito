@@ -11,6 +11,10 @@ export const RenderElectronicsFields = ({
   onChange,
 }: ElectronicsParamsFieldsProps) => {
   const handleTypeChange = (value: string) => {
+    if (!value || value === "") {
+      onChange("type", "");
+      return;
+    }
     const mappedValue =
       value === "Телефон"
         ? "phone"
@@ -24,6 +28,10 @@ export const RenderElectronicsFields = ({
   };
 
   const handleConditionChange = (value: string) => {
+    if (!value || value === "") {
+      onChange("condition", "");
+      return;
+    }
     const mappedValue =
       value === "Новое" ? "new" : value === "Б/у" ? "used" : "";
     onChange("condition", mappedValue);

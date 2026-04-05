@@ -11,6 +11,10 @@ export const RenderRealEstateFields = ({
   onChange,
 }: RealEstateParamsFieldsProps) => {
   const handleTypeChange = (value: string) => {
+    if (!value || value === "") {
+      onChange("type", "");
+      return;
+    }
     const mappedValue =
       value === "Квартира" ? "flat" : value === "Дом" ? "house" : "room";
     onChange("type", mappedValue);

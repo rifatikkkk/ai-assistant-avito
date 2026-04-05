@@ -11,6 +11,10 @@ export const RenderAutoFields = ({
   onChange,
 }: AutoParamsFieldsProps) => {
   const handleTransmissionChange = (value: string) => {
+    if (!value || value === "") {
+      onChange("transmission", "");
+      return;
+    }
     const mappedValue = value === "Автомат" ? "automatic" : "manual";
     onChange("transmission", mappedValue);
   };
