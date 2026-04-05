@@ -14,8 +14,8 @@ export const RevisionInfoAd: FC<RevisionInfoAdProps> = ({ values }) => {
         <div className="ads-details__revision-values">
           <p>У объявления не заполнены поля:</p>
           <ul className="ads-details__revision-list">
-            {values?.map((value) => (
-              <li>{value}</li>
+            {values?.map((value, index) => (
+              <li key={index}>{value}</li>
             ))}
           </ul>
         </div>
