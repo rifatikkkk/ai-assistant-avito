@@ -16,7 +16,7 @@ export const FormAdActions: FC<FormAdActionsProps> = ({
       <Button disabled={disabled} type="submit">
         Сохранить
       </Button>
-      <Button onClick={onCancel} primaryColor={false}>
+      <Button onClick={onCancel} primaryColor={false} type="button">
         Отменить
       </Button>
     </div>

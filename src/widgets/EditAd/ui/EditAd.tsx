@@ -21,6 +21,11 @@ import { useNavigate, useParams } from "react-router";
 import { useNotification } from "@/shared/lib";
 import { Notification } from "@/shared/ui";
 import { validateForm } from "../model/utils/validateForm";
+import {
+  clearFormDataFromStorage,
+  loadFormDataFromStorage,
+  saveFormDataToStorage,
+} from "../model/utils/localStorage";
 
 export const EditAd = () => {
   const { id } = useParams<{ id: string }>();
@@ -42,12 +47,19 @@ export const EditAd = () => {
     const loadAd = async () => {
       if (!id) return;
 
+      const savedData = loadFormDataFromStorage(id);
+      if (savedData) {
+        setFormData(savedData);
+        return;
+      }
+
       if (ad && ad.id === Number(id)) {
         const transformedData = transformFromApiData(ad);
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData(transformedData);
         return;
       }
+
       try {
         const result = await dispatch(getAdById(Number(id))).unwrap();
         const transformedData = transformFromApiData(result);
@@ -58,6 +70,14 @@ export const EditAd = () => {
     };
     loadAd();
   }, [dispatch, id, ad, navigate]);
+
+  useEffect(() => {
+    // check on 3 main attribute
+    if (id)
+      if (formData.title || formData.price || formData.category) {
+        saveFormDataToStorage(id, formData);
+      }
+  }, [formData, id]);
 
   const updateFormData = (field: keyof FormDataUpdate, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -70,6 +90,7 @@ export const EditAd = () => {
     try {
       const result = await dispatch(updateAd(submitData)).unwrap();
       if (result.success) {
+        clearFormDataFromStorage(id);
         showNotification("", "success", 5000);
         setTimeout(() => {
           navigate(`/ads`);
@@ -85,6 +106,7 @@ export const EditAd = () => {
   };
 
   const handleCancel = () => {
+    clearFormDataFromStorage(id);
     navigate(-1);
   };
 
