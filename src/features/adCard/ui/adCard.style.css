@@ -60,7 +60,7 @@
 .ad-card__price {
   font-weight: 600;
   line-height: 140%;
-  color: var(--price-color);
+  color: var(--primary-45-color);
   flex-wrap: wrap;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .ad-card__revision {
-  background-color: var(--revision-color);
+  background-color: var(--cream-color);
   padding: 2px 8px;
   font-size: 14px;
   line-height: 22px;

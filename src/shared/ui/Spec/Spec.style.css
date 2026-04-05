@@ -17,7 +17,7 @@
 .ads-details__specs-names {
   flex: 1;
   max-width: 148px;
-  color: var(--price-color);
+  color: var(--primary-45-color);
   font-weight: 600;
 }
 
