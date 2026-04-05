@@ -75,9 +75,7 @@ export const EditAd = () => {
           navigate(`/ads`);
         }, 5000);
       }
-    } catch (error) {
-      const errorMessage = error as string;
-      console.log(errorMessage);
+    } catch {
       showNotification(
         "При попытке сохранить изменения произошла ошибка. Попробуйте ещё раз или зайдите позже.",
         "error",

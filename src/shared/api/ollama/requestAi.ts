@@ -10,6 +10,5 @@ export const requestAi = async (promt: string) => {
       temperature: 0.3,
     },
   });
-  console.log(response.response);
   return response;
 };

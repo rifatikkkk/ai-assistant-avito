@@ -12,7 +12,6 @@ export const updateAd = createAsyncThunk<
       `/items/${updateData.id}`,
       updateData,
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(
