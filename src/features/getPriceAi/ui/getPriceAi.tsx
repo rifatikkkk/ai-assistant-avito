@@ -19,9 +19,11 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
   const [countRequest, setCountRequest] = useState(0);
   const [commentary, setCommentary] = useState<string | null>(null);
   const [priceResponse, setPriceResponse] = useState<string | null>(null);
+  const [isError, setIsError] = useState(false);
 
   const handleHelp = async () => {
     if (isLoading) return;
+    setIsError(false);
     setIsLoading(true);
     setCountRequest((prev) => prev + 1);
     try {
@@ -36,7 +38,7 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
         );
       }
     } catch (error) {
-      console.error("Ollama error:", error);
+      setIsError(true);
       throw error;
     } finally {
       setIsLoading(false);
@@ -54,6 +56,7 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
     <div className="help-price__wrap">
       {commentary && (
         <NotificationAi
+          isError={isError}
           content={commentary}
           onApply={handleApplyPrice}
           onClose={() => setCommentary(null)}

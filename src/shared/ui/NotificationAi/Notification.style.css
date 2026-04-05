@@ -10,13 +10,21 @@
   box-shadow: var(--ai-shadow);
   padding: 8px;
   color: var(--default-color);
-
+  background-color: var(--neutral-1-color);
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
+.ai--error {
+  background-color: var(--danger-1-color);
+}
+
 .ai-header {
   font-weight: 500;
+}
+
+.ai--error .ai-header {
+  color: var(--danger-3-color);
 }
 
 .ai__actions {

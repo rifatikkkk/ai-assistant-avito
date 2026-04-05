@@ -7,6 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   primaryColor?: boolean;
   small?: boolean;
   isClose?: boolean;
+  isError?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -15,6 +16,7 @@ export const Button: FC<ButtonProps> = ({
   primaryColor = true,
   small,
   isClose = false,
+  isError = false,
   ...props
 }) => {
   return (
@@ -24,7 +26,10 @@ export const Button: FC<ButtonProps> = ({
           ? { padding: "0 7px", fontSize: "14px", borderRadius: "4px" }
           : undefined
       }
-      className={`button ${primaryColor ? "btn-primary-color" : "btn-default-color"} ${isClose ? "btn--close" : ""}`}
+      className={`button ${primaryColor ? "btn-primary-color" : "btn-default-color"} 
+        ${isError ? "btn--error" : ""}
+        ${isClose ? "btn--close" : ""}
+         `}
       onClick={onClick}
       {...props}
     >

@@ -27,6 +27,12 @@
   border: 1px solid var(--neutral-5-color);
 }
 
+.btn--error.btn--error {
+  background-color: var(--danger-2-color);
+  color: var(--primary-85-color);
+  border: 1px solid var(--neutral-5-color);
+}
+
 .button:disabled {
   background-color: var(--neutral-5-color) !important;
   color: var(--neutral-3-color) !important;

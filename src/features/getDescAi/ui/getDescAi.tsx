@@ -14,9 +14,11 @@ export const GetDescAi: FC<GetDescAiProps> = ({ value, onDescSuggestion }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [countRequest, setCountRequest] = useState(0);
   const [commentary, setCommentary] = useState<string | null>(null);
+  const [isError, setIsError] = useState(false);
 
   const handleHelp = async () => {
     if (isLoading) return;
+    setIsError(false);
     setIsLoading(true);
     setCountRequest((prev) => prev + 1);
     try {
@@ -25,7 +27,7 @@ export const GetDescAi: FC<GetDescAiProps> = ({ value, onDescSuggestion }) => {
 
       if (responseAi.done) setCommentary(responseAi.response);
     } catch (error) {
-      console.error("Ollama error:", error);
+      setIsError(true);
       throw error;
     } finally {
       setIsLoading(false);
@@ -43,6 +45,7 @@ export const GetDescAi: FC<GetDescAiProps> = ({ value, onDescSuggestion }) => {
     <div className="help-desc__wrap">
       {commentary && (
         <NotificationAi
+          isError={isError}
           content={commentary}
           onApply={handleApplyDesc}
           onClose={() => setCommentary(null)}
