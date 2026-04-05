@@ -3,7 +3,7 @@ import type { FC } from "react";
 import "./adCard.style.css";
 import { useAppSelector } from "@/app/store/hooks";
 import { getCategoryLabel } from "@/shared/config";
-import { MyLink } from "@/shared/ui/MyLink";
+import { MyLink } from "@/shared/ui";
 
 type AdCardProps = {
   item: Ad;

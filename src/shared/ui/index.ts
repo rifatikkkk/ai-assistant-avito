@@ -1,3 +1,5 @@
+export { PageButton } from "./PageButton/PageButton.tsx";
+export { MyLink } from "./MyLink/MyLink.tsx";
 export { NotificationAi } from "./NotificationAi/NotificationAi.tsx";
 export { Notification } from "./Notification/Notification.tsx";
 export { Title } from "./Title/Title.tsx";
