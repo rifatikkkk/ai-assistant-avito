@@ -3,6 +3,8 @@
   border: 1px solid var(--neutral-4-color);
   border-radius: 16px;
   gap: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .ad-card--grid {
@@ -39,6 +41,7 @@
   gap: 4px;
   font-size: 16px;
   position: relative;
+  flex: 1;
 }
 
 .ad-card__content--grid {
@@ -89,6 +92,7 @@
 }
 
 .ad-card__revision {
+  margin-top: auto;
   background-color: var(--cream-color);
   padding: 2px 8px;
   font-size: 14px;
