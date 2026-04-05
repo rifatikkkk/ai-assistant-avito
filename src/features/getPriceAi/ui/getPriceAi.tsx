@@ -47,8 +47,8 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
 
   const handleApplyPrice = () => {
     if (priceResponse && onPriceSuggestion) {
+      setCommentary(null);
       onPriceSuggestion(priceResponse);
-      console.log(priceResponse);
     }
   };
 
