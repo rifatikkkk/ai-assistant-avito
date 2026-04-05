@@ -21,6 +21,12 @@
   color: var(--neutral-6-color);
 }
 
+.btn--close {
+  background-color: var(--neutral-1-color);
+  color: var(--primary-85-color);
+  border: 1px solid var(--neutral-5-color);
+}
+
 .button:disabled {
   background-color: var(--neutral-5-color) !important;
   color: var(--neutral-3-color) !important;

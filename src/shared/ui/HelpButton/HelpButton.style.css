@@ -13,3 +13,16 @@
   cursor: pointer;
   width: fit-content;
 }
+
+.img--loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

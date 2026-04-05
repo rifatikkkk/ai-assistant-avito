@@ -1,0 +1,67 @@
+import { HelpButton, NotificationAi } from "@/shared/ui";
+import "./getPriceAi.style.css";
+import { useState, type FC } from "react";
+import type { FormDataUpdate } from "@/entities/ad/model";
+import { requestAi } from "../model/utils/requestAi";
+import { parsePriceFromResponse } from "../model/utils/parsePrice";
+
+interface GetPriceAiProps {
+  value: FormDataUpdate;
+  onPriceSuggestion?: (price: string) => void;
+}
+
+export const GetPriceAi: FC<GetPriceAiProps> = ({
+  value,
+  onPriceSuggestion,
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [countRequest, setCountRequest] = useState(0);
+  const [commentary, setCommentary] = useState<string | null>(null);
+  const [priceResponse, setPriceResponse] = useState<string | null>(null);
+
+  const handleHelp = async () => {
+    if (isLoading) return;
+    setIsLoading(true);
+    setCountRequest((prev) => prev + 1);
+    try {
+      const responseAi = await requestAi(value);
+      if (responseAi.done) {
+        const parsed = parsePriceFromResponse(responseAi.response);
+        setPriceResponse(parsed);
+        setCommentary(
+          responseAi.response +
+            `\n${parsed ? `При применении цена будет указана: ${parsed} ` : "Не удалось получить цену"}`,
+        );
+      }
+    } catch (error) {
+      console.error("Ollama error:", error);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleApplyPrice = () => {
+    if (priceResponse && onPriceSuggestion) {
+      onPriceSuggestion(priceResponse);
+      console.log(priceResponse);
+    }
+  };
+
+  return (
+    <div className="help-price__wrap">
+      {commentary && (
+        <NotificationAi
+          content={commentary}
+          onApply={handleApplyPrice}
+          onClose={() => setCommentary(null)}
+        />
+      )}
+      <HelpButton
+        onHandle={handleHelp}
+        isLoading={isLoading}
+        countRequest={countRequest}
+      />
+    </div>
+  );
+};

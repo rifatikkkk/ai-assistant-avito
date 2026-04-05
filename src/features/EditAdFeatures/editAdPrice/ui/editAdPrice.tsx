@@ -1,13 +1,15 @@
 import type { FC } from "react";
-import { HelpButton, Input } from "@/shared/ui";
+import { Input } from "@/shared/ui";
 import "./editAdPrice.style.css";
+import { GetPriceAi } from "@/features/getPriceAi";
+import type { FormDataUpdate } from "@/entities/ad/model";
 
 interface EditAdPriceProps {
-  value: string;
+  valueForm: FormDataUpdate;
   onChange: (value: string) => void;
 }
 
-export const EditAdPrice: FC<EditAdPriceProps> = ({ value, onChange }) => {
+export const EditAdPrice: FC<EditAdPriceProps> = ({ valueForm, onChange }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = e.target.value;
     newValue = newValue.replace(/[^\d]/g, "");
@@ -16,6 +18,10 @@ export const EditAdPrice: FC<EditAdPriceProps> = ({ value, onChange }) => {
 
   const handleClear = () => {
     onChange("");
+  };
+
+  const handlePriceSuggestion = (suggestedPrice: string) => {
+    onChange(suggestedPrice);
   };
 
   return (
@@ -29,11 +35,14 @@ export const EditAdPrice: FC<EditAdPriceProps> = ({ value, onChange }) => {
           required
           name="price"
           placeholder="Цена"
-          value={value}
+          value={valueForm.price}
           onChange={handleChange}
           onClear={handleClear}
         >
-          <HelpButton>Узнать рыночную стоимость</HelpButton>
+          <GetPriceAi
+            value={valueForm}
+            onPriceSuggestion={handlePriceSuggestion}
+          />
         </Input>
       </div>
     </div>

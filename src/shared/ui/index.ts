@@ -1,3 +1,4 @@
+export { NotificationAi } from "./NotificationAi/NotificationAi.tsx";
 export { Notification } from "./Notification/Notification.tsx";
 export { Title } from "./Title/Title.tsx";
 export { HelpButton } from "./HelpButton/HelpButton.tsx";

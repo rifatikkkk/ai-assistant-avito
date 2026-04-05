@@ -112,7 +112,7 @@ export const EditAd = () => {
         />
 
         <EditAdPrice
-          value={formData.price}
+          valueForm={formData}
           onChange={(value) => updateFormData("price", value)}
         />
 
