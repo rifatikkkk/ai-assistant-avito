@@ -2,8 +2,9 @@ import { HelpButton, NotificationAi } from "@/shared/ui";
 import "./getPriceAi.style.css";
 import { useState, type FC } from "react";
 import type { FormDataUpdate } from "@/entities/ad/model";
-import { requestAi } from "../model/utils/requestAi";
 import { parsePriceFromResponse } from "../model/utils/parsePrice";
+import { requestAi } from "@/shared/api";
+import { promptPrice } from "../model";
 
 interface GetPriceAiProps {
   value: FormDataUpdate;
@@ -24,7 +25,8 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
     setIsLoading(true);
     setCountRequest((prev) => prev + 1);
     try {
-      const responseAi = await requestAi(value);
+      const dynamicPrompt = promptPrice(value);
+      const responseAi = await requestAi(dynamicPrompt);
       if (responseAi.done) {
         const parsed = parsePriceFromResponse(responseAi.response);
         setPriceResponse(parsed);
@@ -58,6 +60,7 @@ export const GetPriceAi: FC<GetPriceAiProps> = ({
         />
       )}
       <HelpButton
+        text="Узнать рыночную цену"
         onHandle={handleHelp}
         isLoading={isLoading}
         countRequest={countRequest}

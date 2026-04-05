@@ -123,7 +123,7 @@ export const EditAd = () => {
         />
 
         <EditAdDesc
-          value={formData.description}
+          valueForm={formData}
           onChange={(value) => updateFormData("description", value)}
         />
 

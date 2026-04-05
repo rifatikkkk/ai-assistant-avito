@@ -2,6 +2,7 @@ import type { FC } from "react";
 import "./HelpButton.style.css";
 
 interface HelpButtonProps {
+  text: string;
   onHandle?: () => void;
   isLoading?: boolean;
   countRequest: number;
@@ -11,6 +12,7 @@ export const HelpButton: FC<HelpButtonProps> = ({
   onHandle,
   isLoading = false,
   countRequest,
+  text,
 }) => {
   return (
     <button
@@ -34,7 +36,7 @@ export const HelpButton: FC<HelpButtonProps> = ({
         ? "Выполняется запрос"
         : countRequest > 0
           ? "Повторить запрос"
-          : "Узнать рыночную стоимость"}
+          : text}
     </button>
   );
 };
